@@ -2,26 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply min-h-[100dvh] overflow-x-hidden;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .nav {
+    @apply bg-white/80 backdrop-blur fixed w-full top-0 left-0 z-10 flex justify-between py-5 px-20 max-[500px]:px-10 max-[500px]:justify-center;
+  }
+  .section {
+    @apply h-[100dvh];
+  }
+  .footer {
+    @apply bg-neutral-500 text-white py-10 px-20 max-[500px]:px-10 text-sm;
+  }
+}
+@layer utilities {
 }
