@@ -27,10 +27,9 @@ const Product = () => {
     >
       <h1 className="font-bold text-6xl max-[580px]:text-4xl">Produk Kami</h1>
       <p className="max-[580px]:w-full w-[80%] lg:w-[60%] text-center text-neutral-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ad
-        eius, unde, impedit odio laudantium totam sunt laborum omnis consequatur
-        natus veniam. Voluptates blanditiis voluptate officia at veniam esse
-        velit!
+        Berikut adalah empat produk terpopuler dan teratas kami. Diantaranya
+        adalah Philo Squamiferum, Red Anja (Big Size), Melano, dan Lady
+        Valentine.
       </p>
       <div className="grid grid-cols-4 max-[876px]:grid-cols-2 gap-5">
         {bunga.map((item) => (

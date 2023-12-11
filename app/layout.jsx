@@ -7,7 +7,8 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600", "800"] });
 
 export const metadata = {
   title: "Fraxinus Jambi",
-  description: "Fraxinus adalah toko tanaman hias yang terletak di Jambi",
+  description:
+    "Fraxinus adalah toko tanaman hias yang terletak di Jln. Sei Bengkal RT.017 Simpang Rimbo Jambi",
 };
 
 export default function RootLayout({ children }) {

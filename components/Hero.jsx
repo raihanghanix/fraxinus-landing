@@ -10,10 +10,10 @@ const Hero = () => {
             Fraxinus
           </h1>
           <p className="leading-relaxed text-neutral-500 max-sm:text-center">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-            obcaecati soluta optio ducimus nobis voluptatem quos. Libero
-            voluptas voluptatibus, architecto ratione perspiciatis cupiditate
-            sit, optio nisi esse quod vero minima.
+            Fraxinus adalah toko tanaman hias yang terletak pada Jln. Sei
+            Bengkal RT.017 Simpang Rimbo Jambi. Jenis-jenis tanaman yang kami
+            jual antara lain adalah Monstera, Philodendron, Aglonema, Calatea,
+            dan banyak lagi.
           </p>
           <div className="flex gap-5 w-full">
             <a
