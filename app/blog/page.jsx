@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 const BlogList = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const getData = useCallback(async () => {
@@ -50,22 +50,22 @@ const BlogList = () => {
       )}
       {!isLoading &&
         posts?.map((post) => (
-          <Link href={`/blog/${post.id}`} key={post.id} className="w-full">
+          <Link href={`/blog/${post.id}`} key={post?.id} className="w-full">
             <div className="flex flex-row max-[900px]:flex-col p-10 gap-5 rounded border border-black shadow">
               <div className="flex flex-col gap-5 w-full">
-                <h2 className="font-bold text-2xl">{post.title}</h2>
+                <h2 className="font-bold text-2xl">{post?.title}</h2>
                 <div className="flex flex-col gap-3">
-                  <p className="text-neutral-500 text-base">{post.author}</p>
+                  <p className="text-neutral-500 text-base">{post?.author}</p>
                   <p className="text-neutral-500 text-base">
                     {Intl.DateTimeFormat("id", {
                       dateStyle: "full",
                       timeStyle: "short",
-                    }).format(new Date(post.created_at))}
+                    }).format(new Date(post?.created_at))}
                   </p>
                 </div>
                 <hr className="w-full" />
                 <div className="line-clamp-4 w-full">
-                  <p>{post.content}</p>
+                  <p>{post?.content}</p>
                 </div>
               </div>
             </div>
