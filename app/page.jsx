@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Steps from "@/components/Steps";
 import Contact from "@/components/Contact";
 
-const Home = () => {
+const page = () => {
   return (
     <main>
       <Hero />
@@ -14,4 +14,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default page;

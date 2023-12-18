@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
-const Blog = ({ params }) => {
+const BlogItem = ({ params }) => {
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,4 +58,4 @@ const Blog = ({ params }) => {
   );
 };
 
-export default Blog;
+export default BlogItem;

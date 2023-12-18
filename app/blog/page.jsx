@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
-const Blog = () => {
+const BlogList = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -75,4 +75,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogList;
