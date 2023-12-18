@@ -13,20 +13,20 @@ const Steps = () => {
           </h1>
           <div className="flex flex-col xl:flex-row gap-5">
             <div className="flex flex-col text-center lg:flex-row lg:text-start p-10 gap-10 shadow border rounded items-center flex-1">
-              <h1 className="font-bold text-green-500 text-4xl">1</h1>
+              <h2 className="font-bold text-green-500 text-4xl">1</h2>
               <p>
                 Silahkan hubungi kami melewati WhatsApp atau Instagram kami.
               </p>
             </div>
             <div className="flex flex-col text-center lg:flex-row lg:text-start p-10 gap-10 shadow border rounded items-center flex-1">
-              <h1 className="font-bold text-green-500 text-4xl">2</h1>
+              <h2 className="font-bold text-green-500 text-4xl">2</h2>
               <p>
                 Silahkan lakukan pemesanan, tanyakan tentang stok, harga, dan
                 sebagainya.
               </p>
             </div>
             <div className="flex flex-col text-center lg:flex-row lg:text-start p-10 gap-10 shadow border rounded items-center flex-1">
-              <h1 className="font-bold text-green-500 text-4xl">3</h1>
+              <h2 className="font-bold text-green-500 text-4xl">3</h2>
               <p>Pesanan akan segera diantarkan!</p>
             </div>
           </div>

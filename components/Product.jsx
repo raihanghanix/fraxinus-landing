@@ -44,7 +44,7 @@ const Product = () => {
               width={200}
               height={200}
             />
-            <h1 className="text-center font-bold">{item.nama}</h1>
+            <h2 className="text-center font-bold">{item.nama}</h2>
           </div>
         ))}
       </div>
