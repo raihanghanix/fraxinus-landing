@@ -9,6 +9,16 @@ export const metadata = {
   title: "Fraxinus Jambi",
   description:
     "Fraxinus adalah toko tanaman hias yang terletak di Jln. Sei Bengkal RT.017 Simpang Rimbo Jambi",
+  applicationName: "Fraxinus",
+  keywords: [
+    "tanaman",
+    "tanaman hias",
+    "jambi",
+    "fraxinus",
+    "fraxinus jambi",
+    "jual bunga hias",
+  ],
+  creator: "Raihan Ghani, Dkk.",
 };
 
 export default function RootLayout({ children }) {
