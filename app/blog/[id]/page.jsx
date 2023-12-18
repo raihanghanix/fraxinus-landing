@@ -2,26 +2,27 @@
 
 import axios from "axios";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Blog = ({ params }) => {
   const [posts, setPosts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        setIsLoading(true);
-        const posts = await axios.get(`/api/post/${params.id}`);
-        setPosts(posts.data.document);
-      } catch (e) {
-        console.log(e);
-      } finally {
-        setIsLoading(false);
-      }
+  const getData = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const posts = await axios.get(`/api/post/${params.id}`);
+      setPosts(posts.data.document);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoading(false);
     }
+  }, [params.id]);
+
+  useEffect(() => {
     getData();
-  }, [params]);
+  }, [getData, params]);
 
   return (
     <section className="section flex justify-center items-center max-w-6xl mx-auto px-20 max-[500px]:px-10">

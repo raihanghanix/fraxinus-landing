@@ -9,18 +9,19 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        setIsLoading(true);
-        const posts = await axios.get("/api/post");
-        setPosts(posts?.data?.documents.reverse());
-      } catch (e) {
-        console.log(e);
-      } finally {
-        setIsLoading(false);
-      }
+  async function getData() {
+    try {
+      setIsLoading(true);
+      const posts = await axios.get("/api/post");
+      setPosts(posts?.data?.documents.reverse());
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoading(false);
     }
+  }
+
+  useEffect(() => {
     getData();
   }, []);
 
@@ -32,6 +33,12 @@ const Blog = () => {
       <div className="pt-32 flex items-center justify-center">
         <h1 className="font-bold text-5xl">Blog</h1>
       </div>
+      <button
+        className="p-5 w-full bg-green-500 text-white font-bold rounded shadow"
+        onClick={getData}
+      >
+        Muat Ulang
+      </button>
       {isLoading && (
         <div className="">
           <p>Loading...</p>
