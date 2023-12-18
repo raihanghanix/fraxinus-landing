@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -11,8 +10,9 @@ const Blog = () => {
   async function getData() {
     try {
       setIsLoading(true);
-      const posts = await axios.get("/api/post");
-      setPosts([...posts.data].reverse());
+      const res = await fetch(`/api/post`);
+      const data = await res.json();
+      setPosts([...data].reverse());
     } catch (e) {
       console.log(e);
     } finally {

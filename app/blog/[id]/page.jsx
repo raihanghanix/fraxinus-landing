@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
@@ -11,8 +10,9 @@ const Blog = ({ params }) => {
   const getData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const post = await axios.get(`/api/post/${params.id}`);
-      setPost(post.data[0]);
+      const res = await fetch(`/api/post/${params.id}`);
+      const data = await res.json();
+      setPost(data[0]);
     } catch (e) {
       console.log(e);
     } finally {
