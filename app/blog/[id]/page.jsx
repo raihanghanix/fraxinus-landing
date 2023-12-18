@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 const Blog = ({ params }) => {
-  const [posts, setPosts] = useState(null);
+  const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const getData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const posts = await axios.get(`/api/post/${params.id}`);
-      setPosts(posts.data.document);
+      const post = await axios.get(`/api/post/${params.id}`);
+      setPost(post.data[0]);
     } catch (e) {
       console.log(e);
     } finally {
@@ -31,34 +31,21 @@ const Blog = ({ params }) => {
           <p>Loading...</p>
         </div>
       )}
-      {posts !== null && !isLoading && (
+      {post !== null && !isLoading && (
         <div className="w-full flex flex-col gap-5">
           <div className="flex flex-col gap-3">
-            <h2 className="font-bold text-2xl">{posts?.title}</h2>
-            <p className="text-neutral-500 text-base">{posts?.author}</p>
+            <h2 className="font-bold text-2xl">{post?.title}</h2>
+            <p className="text-neutral-500 text-base">{post?.author}</p>
             <p className="text-neutral-500 text-base">
-              Dibuat pada:{" "}
               {Intl.DateTimeFormat("id", {
                 dateStyle: "full",
                 timeStyle: "short",
-              }).format(new Date(posts?.createdAt))}
-            </p>
-            <p className="text-neutral-500 text-base">
-              Diupdate pada:{" "}
-              {Intl.DateTimeFormat("id", {
-                dateStyle: "full",
-                timeStyle: "short",
-              }).format(new Date(posts?.updatedAt))}
+              }).format(new Date(post?.created_at))}
             </p>
           </div>
           <hr />
-          <div>
-            {posts?.content?.split("\n").map((line, i) => (
-              <p key={i}>
-                {line}
-                <br />
-              </p>
-            ))}
+          <div className="line-clamp-4 w-full">
+            <p>{post.content}</p>
           </div>
           <div className="w-full flex justify-end">
             <Link href="/blog" className="underline text-green-500">

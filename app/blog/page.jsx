@@ -1,7 +1,6 @@
 "use client";
 
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -13,7 +12,7 @@ const Blog = () => {
     try {
       setIsLoading(true);
       const posts = await axios.get("/api/post");
-      setPosts(posts?.data?.documents.reverse());
+      setPosts([...posts.data].reverse());
     } catch (e) {
       console.log(e);
     } finally {
@@ -51,9 +50,9 @@ const Blog = () => {
       )}
       {!isLoading &&
         posts?.map((post) => (
-          <Link href={`/blog/${post._id}`} key={post._id} className="w-full">
+          <Link href={`/blog/${post.id}`} key={post.id} className="w-full">
             <div className="flex flex-row max-[900px]:flex-col p-10 gap-5 rounded border border-black shadow">
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-5 w-full">
                 <h2 className="font-bold text-2xl">{post.title}</h2>
                 <div className="flex flex-col gap-3">
                   <p className="text-neutral-500 text-base">{post.author}</p>
@@ -61,18 +60,12 @@ const Blog = () => {
                     {Intl.DateTimeFormat("id", {
                       dateStyle: "full",
                       timeStyle: "short",
-                    }).format(new Date(post.createdAt))}
+                    }).format(new Date(post.created_at))}
                   </p>
                 </div>
-
-                <hr />
-                <div className="line-clamp-4">
-                  {post.content.split("\n").map((line, i) => (
-                    <p key={i}>
-                      {line}
-                      <br />
-                    </p>
-                  ))}
+                <hr className="w-full" />
+                <div className="line-clamp-4 w-full">
+                  <p>{post.content}</p>
                 </div>
               </div>
             </div>
