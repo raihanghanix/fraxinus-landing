@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
@@ -35,31 +36,31 @@ const Footer = () => {
         <div className="flex-1 flex flex-col gap-5">
           <div className="flex gap-5 items-center">
             <i className="fa-brands fa-whatsapp text-2xl"></i>
-            <a href="https://wa.me/+6282320426161" target="_blank">
+            <Link href="https://wa.me/+6282320426161" target="_blank">
               +62 823 2042 6161
-            </a>
+            </Link>
           </div>
           <div className="flex gap-5 items-center">
             <i className="fa-brands fa-instagram text-2xl"></i>
-            <a
+            <Link
               href="https://www.instagram.com/nuansagarden_jbi/"
               target="_blank"
             >
               @fraxinus_jambi
-            </a>
+            </Link>
           </div>
           <div className="flex gap-5 items-center">
             <i className="fa-solid fa-location-dot text-2xl"></i>
-            <a href="#">Jln. Sei Bengkal RT.017 Simpang Rimbo</a>
+            <Link href="#">Jln. Sei Bengkal RT.017 Simpang Rimbo</Link>
           </div>
         </div>
       </div>
       <div className="flex">
         <div className="flex-1 grid gap-5 grid-cols-2">
           {links.map((link) => (
-            <a key={link.title} href={link.link} className="">
+            <Link key={link.title} href={link.link} className="">
               {link.title}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

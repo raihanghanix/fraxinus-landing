@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
   const path = usePathname();
 
   const links = [
@@ -58,7 +57,7 @@ const Navbar = () => {
         isScrolled ? "shadow" : "shadow-transparent"
       } transition-shadow`}
     >
-      <a
+      <Link
         href={path === "/" ? "#" : "/"}
         className="font-bold flex gap-5 items-center hover:scale-105 max-[500px]:hidden"
       >
@@ -71,10 +70,10 @@ const Navbar = () => {
           fill={false}
         />
         <p className="max-md:hidden">Fraxinus</p>
-      </a>
+      </Link>
       <div className="flex gap-5 text-sm items-center justify-normal max-[500px]:justify-between max-[500px]:w-full">
         {links.map((link) => (
-          <a
+          <Link
             key={link.title}
             href={link.link}
             className="hover:scale-105 hover:text-green-500 flex items-center"
@@ -83,7 +82,7 @@ const Navbar = () => {
               <i className={`${link.icon}`}></i>
             </p>
             <p className="max-sm:hidden">{link.title}</p>
-          </a>
+          </Link>
         ))}
       </div>
     </nav>
