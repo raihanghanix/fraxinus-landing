@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { NextResponse } from "next/server";
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -12,8 +13,8 @@ export const GET = async (req, context) => {
       .from("posts")
       .select()
       .eq("id", postId);
-    return new Response(JSON.stringify(queryData), { status: 200 });
+    return new NextResponse(JSON.stringify(queryData), { status: 200 });
   } catch (error) {
-    return new Response(JSON.stringify(error), { status: 500 });
+    return new NextResponse(JSON.stringify(error), { status: 500 });
   }
 };
