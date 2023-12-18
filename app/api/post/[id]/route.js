@@ -6,7 +6,7 @@ const supabase = createClient(
   process.env.SUPABASE_KEY
 );
 
-export const GET = async (req, context) => {
+export const POST = async (req, context) => {
   try {
     const postId = context.params.id;
     const { data: queryData, error: queryError } = await supabase

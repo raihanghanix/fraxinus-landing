@@ -10,7 +10,12 @@ const BlogItem = ({ params }) => {
   const getData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(`/api/post/${params.id}`);
+      const res = await fetch(`/api/post/${params.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json();
       setPost(data[0]);
     } catch (e) {

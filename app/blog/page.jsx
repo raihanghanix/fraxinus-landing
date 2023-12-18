@@ -10,7 +10,12 @@ const BlogList = () => {
   const getData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await fetch(`/api/post`);
+      const res = await fetch(`/api/post`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json();
       setPosts([...data].reverse());
     } catch (e) {
